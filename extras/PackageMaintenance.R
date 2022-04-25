@@ -1,6 +1,6 @@
 # Copyright 2020 Observational Health Data Sciences and Informatics
 #
-# This file is part of PredDrugInducedLiverInjury
+# This file is part of SkeletonPredictionStudy
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,12 +16,12 @@
 
 # Format and check code ---------------------------------------------------
 OhdsiRTools::formatRFolder()
-OhdsiRTools::checkUsagePackage("PredDrugInducedLiverInjury")
+OhdsiRTools::checkUsagePackage("SkeletonPredictionStudy")
 OhdsiRTools::updateCopyrightYearFolder()
 
 # Create manual -----------------------------------------------------------
-shell("rm extras/PredDrugInducedLiverInjury.pdf")
-shell("R CMD Rd2pdf ./ --output=extras/PredDrugInducedLiverInjury.pdf")
+shell("rm extras/SkeletonPredictionStudy.pdf")
+shell("R CMD Rd2pdf ./ --output=extras/SkeletonPredictionStudy.pdf")
 
 # Create vignette ---------------------------------------------------------
 rmarkdown::render("vignettes/UsingSkeletonPackage.Rmd",
@@ -41,19 +41,6 @@ rmarkdown::render("vignettes/CreatingStudyPackageInR.Rmd",
                                           toc = TRUE,
                                           number_sections = TRUE))
 
-# Create analysis details -------------------------------------------------
-# Insert cohort definitions from ATLAS into package -----------------------
-OhdsiRTools::insertCohortDefinitionSetInPackage(fileName = "CohortsToCreate.csv",
-                                                baseUrl = "webapi",
-                                                insertTableSql = TRUE,
-                                                insertCohortCreationR = TRUE,
-                                                generateStats = FALSE,
-                                                packageName = "PredDrugInducedLiverInjury")
-
-# Create analysis details -------------------------------------------------
-source("extras/CreatePredictionAnalysisDetails.R")
-createAnalysesDetails("inst/settings")
-
 # Store environment in which the study was executed -----------------------
-OhdsiRTools::insertEnvironmentSnapshotInPackage("PredDrugInducedLiverInjury")
+OhdsiRTools::insertEnvironmentSnapshotInPackage("SkeletonPredictionStudy")
 

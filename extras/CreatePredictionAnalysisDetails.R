@@ -92,9 +92,11 @@ createAnalysesDetails <- function(workFolder) {
   
   covariateSettingList <- list(covariateSettings1, covariateSettings2) 
   
+  CohortsToCreate <- read.csv("./inst/settings/CohortsToCreate.csv")
+  
   # ADD COHORTS
-  cohortIds <- c(1,2,3)  # add all your Target cohorts here
-  outcomeIds <- c(2,3)   # add all your outcome cohorts here
+  outcomeIds <- c(1778584)   # add all your outcome cohorts here
+  cohortIds <- CohortsToCreate$cohortId[!(CohortsToCreate$cohortId %in% outcomeIds)]   # add cohort IDs
   
   
   # this will then generate and save the json specification for the analysis

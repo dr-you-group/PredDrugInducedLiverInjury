@@ -22,5 +22,6 @@
 #'
 #' @docType package
 #' @name PredDrugInducedLiverInjury
-#' @importFrom magrittr %>%
+#' @importFrom dplyr %>%
+#' @importFrom rlang .data
 NULL
