@@ -42,5 +42,3 @@ for(i in seq(nrow(drugConcepts))){
   writeLines(JJ, filename)
   
 }
-
-i=1

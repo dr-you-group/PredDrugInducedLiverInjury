@@ -518,6 +518,18 @@
       "name": "MOAnormal_LFT_erdosteine"
     }
   ],
+  "getPlpDataArgs": {
+    "maxSampleSize": null,
+    "washoutPeriod": 0
+  },
+  "runPlpArgs": {
+    "minCovariateFraction": 0,
+    "normalizeData": true,
+    "testSplit": "person",
+    "testFraction": 0.25,
+    "splitSeed": 1,
+    "nfold": 5
+  },
   "restrictPlpDataSettings": {
     "studyStartDate": "",
     "studyEndDate": "",
