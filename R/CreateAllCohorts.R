@@ -31,8 +31,8 @@ createCohorts <- function(
                                       )
   )
   cohortDefinitionSet <- CohortGenerator::getCohortDefinitionSet(packageName = "PredDrugInducedLiverInjury",
-                                                                 settingsFileName = "Cohorts.csv",
-                                                                 cohortFileNameValue = "cohortId")
+                                                                 settingsFileName = "settings/CohortsToCreate.csv",
+                                                                 cohortFileNameValue = "cohortName")
   CohortGenerator::generateCohortSet(connection = connection,
                                      cohortDatabaseSchema = databaseDetails$cohortDatabaseSchema,
                                      #cohortTableNames = databaseDetails$cohortTable,

@@ -6,17 +6,19 @@ library(PredDrugInducedLiverInjury)
 outputFolder <- "C:/PredDrugInducedLiverInjuryResults"
 
 # Details for connecting to the server:
-dbms <- "you dbms"
-user <- 'your username'
-pw <- 'your password'
-server <- 'your server'
-port <- 'your port'
+dbms <- 
+user <- 
+pw <- 
+server <- 
+port <- 
+pathToDriver <- 
 
 connectionDetails <- DatabaseConnector::createConnectionDetails(dbms = dbms,
                                                                 server = server,
                                                                 user = user,
                                                                 password = pw,
-                                                                port = port)
+                                                                port = port,
+                                                                pathToDriver = pathToDriver)
 
 # Add the database containing the OMOP CDM data
 cdmDatabaseSchema <- 'cdm database schema'

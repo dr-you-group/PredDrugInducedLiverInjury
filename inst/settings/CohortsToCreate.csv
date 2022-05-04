@@ -1,4 +1,4 @@
-cohortId,atlasId,name
+cohortId,atlasId,cohortName
 1778584,1778584,MOAAbnormal_LFT
 1778587,1778587,MOAnormal_LFT_acetaminophen
 1778588,1778588,MOAnormal_LFT_chlorpheniramine
