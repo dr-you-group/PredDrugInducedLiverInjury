@@ -1,6 +1,6 @@
-# Copyright 2020 Observational Health Data Sciences and Informatics
+# Copyright 2022 Observational Health Data Sciences and Informatics
 #
-# This file is part of SkeletonPredictionStudy
+# This file is part of PredDrugInducedLiverInjury
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,12 +16,12 @@
 
 # Format and check code ---------------------------------------------------
 OhdsiRTools::formatRFolder()
-OhdsiRTools::checkUsagePackage("SkeletonPredictionStudy")
+OhdsiRTools::checkUsagePackage("PredDrugInducedLiverInjury")
 OhdsiRTools::updateCopyrightYearFolder()
 
 # Create manual -----------------------------------------------------------
-shell("rm extras/SkeletonPredictionStudy.pdf")
-shell("R CMD Rd2pdf ./ --output=extras/SkeletonPredictionStudy.pdf")
+shell("rm extras/PredDrugInducedLiverInjury.pdf")
+shell("R CMD Rd2pdf ./ --output=extras/PredDrugInducedLiverInjury.pdf")
 
 # Create vignette ---------------------------------------------------------
 rmarkdown::render("vignettes/UsingSkeletonPackage.Rmd",
@@ -41,6 +41,20 @@ rmarkdown::render("vignettes/CreatingStudyPackageInR.Rmd",
                                           toc = TRUE,
                                           number_sections = TRUE))
 
+# Create analysis details -------------------------------------------------
+# Insert cohort definitions from ATLAS into package -----------------------
+OhdsiRTools::insertCohortDefinitionSetInPackage(fileName = "CohortsToCreate.csv",
+                                                baseUrl = "webapi",
+                                                insertTableSql = TRUE,
+                                                insertCohortCreationR = TRUE,
+                                                generateStats = FALSE,
+                                                packageName = "PredDrugInducedLiverInjury")
+
+# Create analysis details -------------------------------------------------
+library(PatientLevelPrediction)
+source("extras/CreatePredictionAnalysisDetails.R")
+createAnalysesDetails("inst/settings")
+
 # Store environment in which the study was executed -----------------------
-OhdsiRTools::insertEnvironmentSnapshotInPackage("SkeletonPredictionStudy")
+OhdsiRTools::insertEnvironmentSnapshotInPackage("PredDrugInducedLiverInjury")
 

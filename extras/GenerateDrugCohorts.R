@@ -22,7 +22,7 @@ for(i in seq(nrow(drugConcepts))){
   #1125315 -> ConceptId
   #file name -> 
   
-  SS <- gsub("drugConceptId", drugConceptId, S)
+  SS <- gsub(1125315, drugConceptId, S)
   filename <- paste0("MOAnormal_LFT_", drugConceptName, ".sql")
   writeLines(SS, filename)
 
@@ -42,3 +42,6 @@ for(i in seq(nrow(drugConcepts))){
   writeLines(JJ, filename)
   
 }
+
+#CohortToCreate.csv
+##append!

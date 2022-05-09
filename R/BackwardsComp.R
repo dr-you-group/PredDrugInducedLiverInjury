@@ -32,12 +32,12 @@ backwards <- function(predictionAnalysisListFile){
   preprocessSettings <- PatientLevelPrediction::createPreprocessSettings(
     minFraction = json$runPlpArgs$minCovariateFraction, 
     normalize = json$runPlpArgs$normalizeData
-    )
+  )
   
   restrictPlpDataSettings <- PatientLevelPrediction::createRestrictPlpDataSettings(
     washoutPeriod = json$getPlpDataArgs$washoutPeriod, 
     sampleSize = json$getPlpDataArgs$maxSampleSize
-      )
+  )
   
   modelDesign <- list()
   length(modelDesign) <- length(json$targetIds)*length(json$outcomeIds)*length(modelList)*length(covariateSettingList)*length(populationSettingList)
@@ -68,7 +68,7 @@ backwards <- function(predictionAnalysisListFile){
               preprocessSettings = preprocessSettings, 
               modelSettings = mod, 
               runCovariateSummary = T
-              )
+            )
             
             mdind <- mdind + 1
             
@@ -97,14 +97,10 @@ backwards <- function(predictionAnalysisListFile){
   
   json$splitSettings <- PatientLevelPrediction::createDefaultSplitSetting(
     testFraction = json$runPlpArgs$testFraction, 
-    splitSeed = splitSeed, 
+    splitSeed = splitSeed,
     nfold = json$runPlpArgs$nfold, 
     type = splitType
-    )
+  )
   
   return(json)
 }
-
-#backwards("/Users/jreps/Documents/github/PredDrugInducedLiverInjury/inst/settings/predictionAnalysisList_old.json")
-
-

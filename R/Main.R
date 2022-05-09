@@ -115,7 +115,7 @@ execute <- function(
       {createPlpProtocol(predictionAnalysisListFile = NULL, outputLocation = outputFolder)},
       error = {function(e) ParallelLogger::logError(e);}
     )
-             
+    
   }
   
   if (createCohorts) {
@@ -134,8 +134,8 @@ execute <- function(
     }
     
     predictionAnalysisListFile <- system.file("settings",
-      "predictionAnalysisList.json",
-      package = "PredDrugInducedLiverInjury")
+                                              "predictionAnalysisList.json",
+                                              package = "PredDrugInducedLiverInjury")
     
     predictionAnalysisList <- tryCatch(
       {PatientLevelPrediction::loadPlpAnalysesJson(file.path(predictionAnalysisListFile))},
@@ -144,6 +144,8 @@ execute <- function(
         ParallelLogger::logError(cond);
         return(NULL)
       })
+    
+    if(predictionAnalysisList$skeletonVersion %in% c('v0.0.1' ,'v0.0.6')) predictionAnalysisList <- NULL
     
     # make backwards compatible
     if(is.null(predictionAnalysisList)){
@@ -266,25 +268,25 @@ execute <- function(
   }
   
   if(createValidationPackage){
-
-      ParallelLogger::logInfo('Creating validation package')
-      tryCatch({
-        
-        createValidationPackage(
-          devPackageName = 'PredDrugInducedLiverInjury',
-          devDatabaseName = databaseDetails$cdmDatabaseName,
-          analysisLocation = outputFolder,
-          analysisIds = analysesToValidate,
-          outputFolder = outputFolder,
-          validationPackageName = 'PredDrugInducedLiverInjuryValidation',
-          description = 'validating models in PredDrugInducedLiverInjury',
-          createdBy = 'anonymous',
-          organizationName = 'none',
-          useHydra = useHydra,
-          skeletonVersion = skeletonVersion
-        )
-        
-      }, error = function(e){ParallelLogger::logError(e)})
+    
+    ParallelLogger::logInfo('Creating validation package')
+    tryCatch({
+      
+      createValidationPackage(
+        devPackageName = 'PredDrugInducedLiverInjury',
+        devDatabaseName = databaseDetails$cdmDatabaseName,
+        analysisLocation = outputFolder,
+        analysisIds = analysesToValidate,
+        outputFolder = outputFolder,
+        validationPackageName = 'PredDrugInducedLiverInjuryValidation',
+        description = 'validating models in PredDrugInducedLiverInjury',
+        createdBy = 'anonymous',
+        organizationName = 'none',
+        useHydra = useHydra,
+        skeletonVersion = skeletonVersion
+      )
+      
+    }, error = function(e){ParallelLogger::logError(e)})
   }
   
   if (viewShiny) {
@@ -315,4 +317,3 @@ getNames <- function(
   return(nams)
   
 }
-

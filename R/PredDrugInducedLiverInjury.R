@@ -1,6 +1,6 @@
 # @file PredDrugInducedLiverInjury.R
 #
-# Copyright 2020 Observational Health Data Sciences and Informatics
+# Copyright 2022 Observational Health Data Sciences and Informatics
 #
 # This file is part of PredDrugInducedLiverInjury
 # 
@@ -22,6 +22,5 @@
 #'
 #' @docType package
 #' @name PredDrugInducedLiverInjury
-#' @importFrom dplyr %>%
-#' @importFrom rlang .data
+#' @importFrom magrittr %>%
 NULL

@@ -12,7 +12,7 @@ ensure_installed <- function(pkg) {
     if (interactive()) {
       message(msg, "\nWould you like to install it?")
       if (utils::menu(c("Yes", "No")) == 1) {
-        if(pkg%in%c('Hydra', 'CirceR')){
+        if(pkg%in%c('Hydra')){
           if(!is_installed('devtools')){
             utils::install.packages('devtools')
           }
@@ -30,6 +30,44 @@ ensure_installed <- function(pkg) {
 }
 
 
+
+addExecutionSettings <- function(covariateSettings,
+                                 cohortDatabaseSchema,
+                                 cohortTable){
+  
+  #createCovariateSettings <- FeatureExtraction::createCovariateSettings
+  #createCovariateSettings <- function(x){return(x)}
+  if(covariateSettings$fnct == 'createCovariateSettings'){
+    return(covariateSettings$settings)
+  }
+  
+  if(covariateSettings$fnct == 'createCohortCovariateSettings'){
+    covariateSettings$settings$cohortDatabaseSchema <- cohortDatabaseSchema
+    covariateSettings$settings$cohortTable <- cohortTable
+  }
+  
+  
+  if('scaleMap' %in% names(covariateSettings$settings)){
+    covariateSettings$settings$scaleMap <- eval(str2lang(paste0(covariateSettings$settings$scaleMap, collapse = ' ')))
+  }
+  
+  
+  res <- do.call(covariateSettings$fnct, covariateSettings$settings)
+  return(res)
+}
+
+evaluateCovariateSettings <- function(covariateSettings,
+                                      cohortDatabaseSchema,
+                                      cohortTable){
+  
+  for(i in 1:length(covariateSettings)){
+    covariateSettings[[i]] <- lapply(1:length(covariateSettings[[i]]), function(j){addExecutionSettings(covariateSettings[[i]][[j]],
+                                                                                                        cohortDatabaseSchema,
+                                                                                                        cohortTable)} )
+  }
+  
+  return(covariateSettings)
+}
 
 addCohortSettings <- function(
   covariateSettings, 

@@ -26,24 +26,24 @@
 #' 
 
 createAnalysesDetails <- function(workFolder) {
-  # 1) ADD MODELS you want
+   # 1) ADD MODELS you want
   modelSettingList <- list(setAdaBoost(nEstimators = c(10,50,100), learningRate = c(0.5,0.9,1)),
                            setLassoLogisticRegression(),
                            setGradientBoostingMachine()#, 
-                           #    setCIReNN(), 
-                           #    setCNNTorch(), 
-                           #    setCovNN(), 
-                           #    setCovNN2(), 
-                           #    setDecisionTree(), 
-                           #    setDeepNN(), 
-                           #    setKNN(), 
-                           # setLRTorch(), 
-                           # setMLP(), 
-                           # setMLPTorch(), 
-                           # setNaiveBayes(), 
-                           # setRandomForest(), 
-                           # setRNNTorch()
-  )
+                        #    setCIReNN(), 
+                        #    setCNNTorch(), 
+                        #    setCovNN(), 
+                        #    setCovNN2(), 
+                        #    setDecisionTree(), 
+                        #    setDeepNN(), 
+                        #    setKNN(), 
+                        # setLRTorch(), 
+                        # setMLP(), 
+                        # setMLPTorch(), 
+                        # setNaiveBayes(), 
+                        # setRandomForest(), 
+                        # setRNNTorch()
+                        )
   
   # 2) ADD POPULATIONS you want
   pop1 <- createStudyPopulationSettings(riskWindowStart = 1, 
@@ -98,25 +98,25 @@ createAnalysesDetails <- function(workFolder) {
   
   # 3) ADD COVARIATES settings you want
   covariateSettings1 <- FeatureExtraction::createCovariateSettings(useDemographicsGender = TRUE,
-                                                                   useDemographicsAgeGroup = TRUE,
-                                                                   useDemographicsRace = TRUE,
-                                                                   useConditionOccurrenceAnyTimePrior = T,
-                                                                   useConditionEraAnyTimePrior = TRUE,
-                                                                   useConditionGroupEraAnyTimePrior = TRUE, #FALSE,
-                                                                   useDrugExposureAnyTimePrior = T,
-                                                                   useDrugEraAnyTimePrior = TRUE,
-                                                                   useDrugGroupEraAnyTimePrior = TRUE, #FALSE,
-                                                                   useProcedureOccurrenceAnyTimePrior = T,
-                                                                   useDeviceExposureAnyTimePrior = T,
-                                                                   useMeasurementAnyTimePrior =T,
-                                                                   useObservationAnyTimePrior = T,
-                                                                   useCharlsonIndex = TRUE,
-                                                                   useDcsi = TRUE, 
-                                                                   useChads2 = TRUE,
-                                                                   longTermStartDays = -365,
-                                                                   mediumTermStartDays = -180, 
-                                                                   shortTermStartDays = -30, 
-                                                                   endDays = 0)
+                                                                  useDemographicsAgeGroup = TRUE,
+                                                                  useDemographicsRace = TRUE,
+                                                                  useConditionOccurrenceAnyTimePrior = T,
+                                                                  useConditionEraAnyTimePrior = TRUE,
+                                                                  useConditionGroupEraAnyTimePrior = TRUE, #FALSE,
+                                                                  useDrugExposureAnyTimePrior = T,
+                                                                  useDrugEraAnyTimePrior = TRUE,
+                                                                  useDrugGroupEraAnyTimePrior = TRUE, #FALSE,
+                                                                  useProcedureOccurrenceAnyTimePrior = T,
+                                                                  useDeviceExposureAnyTimePrior = T,
+                                                                  useMeasurementAnyTimePrior =T,
+                                                                  useObservationAnyTimePrior = T,
+                                                                  useCharlsonIndex = TRUE,
+                                                                  useDcsi = TRUE, 
+                                                                  useChads2 = TRUE,
+                                                                  longTermStartDays = -365,
+                                                                  mediumTermStartDays = -180, 
+                                                                  shortTermStartDays = -30, 
+                                                                  endDays = 0)
   
   covariateSettings2 <- FeatureExtraction::createCovariateSettings(useDemographicsGender = TRUE,
                                                                    useDemographicsAgeGroup = TRUE,
@@ -131,7 +131,7 @@ createAnalysesDetails <- function(workFolder) {
   
   covariateSettingList <- list(covariateSettings1
                                # , covariateSettings2
-  ) 
+                               ) 
   
   
   CohortsToCreate <- read.csv("./inst/settings/CohortsToCreate.csv")
@@ -143,21 +143,21 @@ createAnalysesDetails <- function(workFolder) {
   
   # this will then generate and save the json specification for the analysis
   savePredictionAnalysisList(workFolder= workFolder,
-                             cohortIds,
-                             outcomeIds,
-                             cohortSettingCsv =file.path(workFolder, 'CohortsToCreate.csv'), 
-                             
-                             covariateSettingList,
-                             populationSettingList,
-                             modelSettingList,
-                             
-                             maxSampleSize= 100000,
-                             washoutPeriod=0,
-                             minCovariateFraction=0,
-                             normalizeData=T,
-                             testSplit='person',
-                             testFraction=0.25,
-                             splitSeed=1,
-                             nfold=5)
-  
-}
+                                         cohortIds,
+                                         outcomeIds,
+                                         cohortSettingCsv =file.path(workFolder, 'CohortsToCreate.csv'), 
+                              
+                                         covariateSettingList,
+                                         populationSettingList,
+                                         modelSettingList,
+                                         
+                                         maxSampleSize= 100000,
+                                         washoutPeriod=0,
+                                         minCovariateFraction=0,
+                                         normalizeData=T,
+                                         testSplit='person',
+                                         testFraction=0.25,
+                                         splitSeed=1,
+                                         nfold=5)
+
+  }

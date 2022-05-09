@@ -15,8 +15,8 @@
 # limitations under the License.
 
 createCohorts <- function(
-  databaseDetails,
-  outputFolder
+    databaseDetails,
+    outputFolder
 ) {
   if (!file.exists(outputFolder))
     dir.create(outputFolder)
@@ -43,7 +43,7 @@ createCohorts <- function(
                                      tempEmulationSchema = databaseDetails$tempEmulationSchema,
                                      cohortDefinitionSet = cohortDefinitionSet)
   
-
+  
   # Check number of subjects per cohort:
   message("Counting cohorts")
   counts <- CohortGenerator::getCohortCounts(connection = connection,
@@ -56,7 +56,7 @@ createCohorts <- function(
 
 addCohortNames <- function(data, IdColumnName = "cohortId", nameColumnName = "cohortName") {
   pathToCsv <- system.file("Cohorts.csv", package = "PredDrugInducedLiverInjury")
-
+  
   idToName <- utils::read.csv(pathToCsv)
   idToName <- idToName[order(idToName$cohortId), ]
   idToName <- idToName[!duplicated(idToName$cohortId), ]
