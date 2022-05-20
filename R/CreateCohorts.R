@@ -53,7 +53,7 @@
   }
   
   if(!is.null(cohortVariableSetting)){
-    # if custom cohort covaraites set:
+    # if custom cohort covariates set:
     pathToCustom <- system.file("settings", cohortVariableSetting, package = "PredDrugInducedLiverInjury")
     if(!file.exists(pathToCustom)){
       stop('cohortVariableSetting does not exist in package')
