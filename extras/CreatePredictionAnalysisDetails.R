@@ -96,8 +96,8 @@ createAnalysesDetails <- function(workFolder) {
   #                                       includeAllOutcomes = T)
   populationSettingList <- list(
     # pop1, pop2, 
-    pop3, 
-    # pop4, pop5, pop6
+    pop3
+    #, pop4, pop5, pop6
     )
   
   # 3) ADD COVARIATES settings you want
@@ -140,8 +140,9 @@ createAnalysesDetails <- function(workFolder) {
   
   CohortsToCreate <- read.csv("./inst/settings/CohortsToCreate.csv")
   
+  
   # ADD COHORTS
-  outcomeIds <- c(1778584)   # add all your outcome cohorts here
+  outcomeIds <- CohortsToCreate[1,1]   # add all your outcome cohorts here
   cohortIds <- CohortsToCreate$cohortId[!(CohortsToCreate$cohortId %in% outcomeIds)]   # add cohort IDs
   
   
