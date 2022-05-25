@@ -46,22 +46,22 @@ createAnalysesDetails <- function(workFolder) {
                         )
   
   # 2) ADD POPULATIONS you want
-  # pop1 <- createStudyPopulationSettings(riskWindowStart = 1, 
-  #                                       riskWindowEnd = 7,
-  #                                       requireTimeAtRisk = T, 
-  #                                       minTimeAtRisk = 6, 
-  #                                       priorOutcomeLookback = 60,
-  #                                       firstExposureOnly = F, 
-  #                                       removeSubjectsWithPriorOutcome = T,
-  #                                       includeAllOutcomes = T)
-  # pop2 <- createStudyPopulationSettings(riskWindowStart = 1, 
-  #                                       riskWindowEnd = 30,
-  #                                       requireTimeAtRisk = T, 
-  #                                       minTimeAtRisk = 29, 
-  #                                       priorOutcomeLookback = 60,
-  #                                       firstExposureOnly = F, 
-  #                                       removeSubjectsWithPriorOutcome = T,
-  #                                       includeAllOutcomes = T)
+  pop1 <- createStudyPopulationSettings(riskWindowStart = 1, 
+                                        riskWindowEnd = 7,
+                                        requireTimeAtRisk = T, 
+                                        minTimeAtRisk = 6, 
+                                        priorOutcomeLookback = 60,
+                                        firstExposureOnly = F, 
+                                        removeSubjectsWithPriorOutcome = T,
+                                        includeAllOutcomes = T)
+  pop2 <- createStudyPopulationSettings(riskWindowStart = 1, 
+                                        riskWindowEnd = 30,
+                                        requireTimeAtRisk = T, 
+                                        minTimeAtRisk = 29, 
+                                        priorOutcomeLookback = 60,
+                                        firstExposureOnly = F, 
+                                        removeSubjectsWithPriorOutcome = T,
+                                        includeAllOutcomes = T)
   pop3 <- createStudyPopulationSettings(riskWindowStart = 1, 
                                         riskWindowEnd = 60,
                                         requireTimeAtRisk = T, 
@@ -70,35 +70,31 @@ createAnalysesDetails <- function(workFolder) {
                                         firstExposureOnly = F, 
                                         removeSubjectsWithPriorOutcome = T,
                                         includeAllOutcomes = T)
-  # pop4 <- createStudyPopulationSettings(riskWindowStart = 1, 
-  #                                       riskWindowEnd = 7,
-  #                                       requireTimeAtRisk = T, 
-  #                                       minTimeAtRisk = 6, 
-  #                                       priorOutcomeLookback = 60,
-  #                                       firstExposureOnly = T, 
-  #                                       removeSubjectsWithPriorOutcome = T,
-  #                                       includeAllOutcomes = T)
-  # pop5 <- createStudyPopulationSettings(riskWindowStart = 1, 
-  #                                       riskWindowEnd = 30,
-  #                                       requireTimeAtRisk = T, 
-  #                                       minTimeAtRisk = 29, 
-  #                                       priorOutcomeLookback = 60,
-  #                                       firstExposureOnly = T, 
-  #                                       removeSubjectsWithPriorOutcome = T,
-  #                                       includeAllOutcomes = T)
-  # pop6 <- createStudyPopulationSettings(riskWindowStart = 1, 
-  #                                       riskWindowEnd = 60,
-  #                                       requireTimeAtRisk = T, 
-  #                                       minTimeAtRisk = 59, 
-  #                                       priorOutcomeLookback = 60,
-  #                                       firstExposureOnly = T, 
-  #                                       removeSubjectsWithPriorOutcome = T,
-  #                                       includeAllOutcomes = T)
-  populationSettingList <- list(
-    # pop1, pop2, 
-    pop3, 
-    # pop4, pop5, pop6
-    )
+  pop4 <- createStudyPopulationSettings(riskWindowStart = 1, 
+                                        riskWindowEnd = 7,
+                                        requireTimeAtRisk = T, 
+                                        minTimeAtRisk = 6, 
+                                        priorOutcomeLookback = 60,
+                                        firstExposureOnly = T, 
+                                        removeSubjectsWithPriorOutcome = T,
+                                        includeAllOutcomes = T)
+  pop5 <- createStudyPopulationSettings(riskWindowStart = 1, 
+                                        riskWindowEnd = 30,
+                                        requireTimeAtRisk = T, 
+                                        minTimeAtRisk = 29, 
+                                        priorOutcomeLookback = 60,
+                                        firstExposureOnly = T, 
+                                        removeSubjectsWithPriorOutcome = T,
+                                        includeAllOutcomes = T)
+  pop6 <- createStudyPopulationSettings(riskWindowStart = 1, 
+                                        riskWindowEnd = 60,
+                                        requireTimeAtRisk = T, 
+                                        minTimeAtRisk = 59, 
+                                        priorOutcomeLookback = 60,
+                                        firstExposureOnly = T, 
+                                        removeSubjectsWithPriorOutcome = T,
+                                        includeAllOutcomes = T)
+  populationSettingList <- list(pop1, pop2, pop3, pop4, pop5, pop6)
   
   # 3) ADD COVARIATES settings you want
   covariateSettings1 <- FeatureExtraction::createCovariateSettings(useDemographicsGender = TRUE,
@@ -163,4 +159,5 @@ createAnalysesDetails <- function(workFolder) {
                                          testFraction=0.25,
                                          splitSeed=1,
                                          nfold=5)
+
   }
