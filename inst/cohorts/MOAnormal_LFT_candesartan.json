@@ -94,7 +94,7 @@
       "id": 6
     },
     {
-    "expression": {"items": [{
+      "expression": {"items": [{
         "isExcluded": false,
         "concept": {
           "INVALID_REASON_CAPTION": "Unknown",
@@ -531,7 +531,7 @@
       "OccurrenceCount": null,
       "AgeAtStart": null,
       "GapDays": null,
-      "CodesetId": 7,
+      "CodesetId": null,
       "AgeAtEnd": null,
       "First": null,
       "Gender": null,
@@ -541,7 +541,7 @@
     "PrimaryCriteriaLimit": {"Type": "All"},
     "ObservationWindow": {
       "PostDays": 0,
-      "PriorDays": 60
+      "PriorDays": 30
     }
   }
 }
