@@ -64,7 +64,7 @@ createCohorts <- TRUE
 runDiagnostic <- FALSE
 viewDiagnostic <- FALSE
 # want to run the prediction study? Set below to TRUE
-runAnalyses <- FALSE
+runAnalyses <- TRUE
 sampleSize <- 100000  # edit this to the number to sample if needed
 # want to populate the protocol with the results? Set below to TRUE
 createResultsDoc <- FALSE
