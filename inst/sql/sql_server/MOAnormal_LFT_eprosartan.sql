@@ -55,10 +55,10 @@ from
 (
   select de.* 
   FROM @cdm_database_schema.DRUG_ERA de
-
+where de.drug_concept_id in (SELECT concept_id from  #Codesets where codeset_id = 7)
 ) C
 
-
+WHERE DATEDIFF(d,C.drug_era_start_date, C.drug_era_end_date) > 7
 -- End Drug Era Criteria
 
   ) E

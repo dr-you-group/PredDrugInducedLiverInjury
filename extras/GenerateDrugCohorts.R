@@ -3,7 +3,7 @@ drugConceptsPath <- system.file("settings", "DrugConceptsToCreate.csv", package=
 drugConceptsPath <- "~/dr-you-group/PredDrugInducedLiverInjury/inst/settings/DrugConceptsToCreate.csv"
 drugConcepts <- read.csv(drugConceptsPath)
 
-drugConcepts <- read.csv("./inst/settings/DrugConceptsToCreate.csv", stringsAsFactors = FALSE)
+# drugConcepts <- read.csv("./inst/settings/DrugConceptsToCreate.csv", stringsAsFactors = FALSE)
 
 #SQL
 

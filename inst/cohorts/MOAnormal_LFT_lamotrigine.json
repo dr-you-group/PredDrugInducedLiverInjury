@@ -531,11 +531,15 @@
       "OccurrenceCount": null,
       "AgeAtStart": null,
       "GapDays": null,
-      "CodesetId": null,
+      "CodesetId": 7,
       "AgeAtEnd": null,
       "First": null,
       "Gender": null,
-      "EraLength": null,
+      "EraLength": {
+        "Op": "gt",
+        "Extent": null,
+        "Value": 7
+      },
       "EraEndDate": null
     }}],
     "PrimaryCriteriaLimit": {"Type": "All"},
