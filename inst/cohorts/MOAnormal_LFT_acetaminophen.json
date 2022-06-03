@@ -98,11 +98,11 @@
         "isExcluded": false,
         "concept": {
           "INVALID_REASON_CAPTION": "Unknown",
-          "CONCEPT_ID": 1150345,
+          "CONCEPT_ID": 1125315,
           "STANDARD_CONCEPT": "S",
           "CONCEPT_CODE": "161",
           "VOCABULARY_ID": "RxNorm",
-          "CONCEPT_NAME": "meloxicam",
+          "CONCEPT_NAME": "acetaminophen",
           "DOMAIN_ID": "Drug",
           "STANDARD_CONCEPT_CAPTION": "Standard",
           "CONCEPT_CLASS_ID": "Ingredient",
@@ -111,7 +111,7 @@
         "includeMapped": false,
         "includeDescendants": false
       }]},
-      "name": "meloxicam",
+      "name": "acetaminophen",
       "id": 7
     }
   ],

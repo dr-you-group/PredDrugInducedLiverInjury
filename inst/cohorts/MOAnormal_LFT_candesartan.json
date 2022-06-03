@@ -535,11 +535,7 @@
       "AgeAtEnd": null,
       "First": null,
       "Gender": null,
-      "EraLength": {
-        "Op": "gt",
-        "Extent": null,
-        "Value": 7
-      },
+      "EraLength": null,
       "EraEndDate": null
     }}],
     "PrimaryCriteriaLimit": {"Type": "All"},
