@@ -3,7 +3,7 @@ library(PredDrugInducedLiverInjury)
 # USER INPUTS
 #=======================
 # The folder where the study intermediate and result files will be written:
-outputFolder <- "C:/Users/user/Documents/PredDrugInducedLiverInjuryResults/resultsToShare_gangnam"
+outputFolder <- ""
 
 # Details for connecting to the server:
 dbms <- 
@@ -96,5 +96,5 @@ execute(databaseDetails = databaseDetails,
         logSettings = logSettings)
 
 # Uncomment and run the next line to see the shiny results:
-outputFolder <- "C:/Users/user/Documents/PredDrugInducedLiverInjuryResults/output/export"
+outputFolder <- ""
 PatientLevelPrediction::viewMultiplePlp(outputFolder)
