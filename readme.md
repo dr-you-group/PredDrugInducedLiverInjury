@@ -133,10 +133,6 @@ Development
 ===========
 `PredDrugInducedLiverInjury` was developed in ATLAS and R Studio.
 
-### Development status
-
-Collecting cohort diagnostics from data partners.
-
 Extras
 ========================================================
 
