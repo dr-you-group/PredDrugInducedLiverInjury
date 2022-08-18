@@ -98,11 +98,11 @@
         "isExcluded": false,
         "concept": {
           "INVALID_REASON_CAPTION": "Unknown",
-          "CONCEPT_ID": 1125315,
+          "CONCEPT_ID": 1150345,
           "STANDARD_CONCEPT": "S",
           "CONCEPT_CODE": "161",
           "VOCABULARY_ID": "RxNorm",
-          "CONCEPT_NAME": "acetaminophen",
+          "CONCEPT_NAME": "meloxicam",
           "DOMAIN_ID": "Drug",
           "STANDARD_CONCEPT_CAPTION": "Standard",
           "CONCEPT_CLASS_ID": "Ingredient",
@@ -111,7 +111,7 @@
         "includeMapped": false,
         "includeDescendants": false
       }]},
-      "name": "acetaminophen",
+      "name": "meloxicam",
       "id": 7
     }
   ],
@@ -533,7 +533,7 @@
       "GapDays": null,
       "CodesetId": 7,
       "AgeAtEnd": null,
-      "First": true,
+      "First": null,
       "Gender": null,
       "EraLength": null,
       "EraEndDate": null
@@ -541,7 +541,7 @@
     "PrimaryCriteriaLimit": {"Type": "All"},
     "ObservationWindow": {
       "PostDays": 0,
-      "PriorDays": 60
+      "PriorDays": 30
     }
   }
 }

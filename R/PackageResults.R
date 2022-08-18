@@ -1,4 +1,4 @@
-# Copyright 2020 Observational Health Data Sciences and Informatics
+# Copyright 2022 Observational Health Data Sciences and Informatics
 #
 # This file is part of PredDrugInducedLiverInjury
 #
@@ -49,38 +49,17 @@ packageResults <- function(outputFolder,
     # loads analysis results
     if(dir.exists(file.path(outputFolder,folder, 'plpResult'))){
       plpResult <- PatientLevelPrediction::loadPlpResult(file.path(outputFolder,folder, 'plpResult'))
-      cvst <- plpResult$inputSetting$dataExtrractionSettings$covariateSettings
-      if(minCellCount!=0){
-        plpResult <- PatientLevelPrediction::transportPlp(plpResult,
-                                             n=minCellCount,
-                                             includeEvaluationStatistics=T,
-                                             includeThresholdSummary=T, 
-                                             includeDemographicSummary=T,
-                                             includeCalibrationSummary =T, 
-                                             includePredictionDistribution=T,
-                                             includeCovariateSummary=T,
-                                             save = F)
-      } else {
-        plpResult <- PatientLevelPrediction::transportPlp(plpResult,
-                                                          n=NULL,
-                                             includeEvaluationStatistics=T,
-                                             includeThresholdSummary=T, 
-                                             includeDemographicSummary=T,
-                                             includeCalibrationSummary =T, 
-                                             includePredictionDistribution=T,
-                                             includeCovariateSummary=T,
-                                             save = F)
-      }
       
-      plpResult$inputSetting$dataExtrractionSettings$covariateSettings <- cvst
-      # save as csv
-      PatientLevelPrediction::savePlpToCsv(plpResult, file.path(exportFolder,folder))
+      PatientLevelPrediction::savePlpShareable(
+        result = plpResult, 
+        saveDirectory = file.path(exportFolder,folder), 
+        minCellCount = minCellCount
+      )
     }
   }
   
-  
   ### Add all to zip file ###
-  zipName <- paste0(outputFolder, '.zip')
+  zipName <- paste0(file.path(outputFolder, 'resultsToShare.zip'))
   OhdsiSharing::compressFolder(exportFolder, zipName)
   # delete temp folder
   unlink(exportFolder, recursive = T)

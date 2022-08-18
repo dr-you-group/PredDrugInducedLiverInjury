@@ -53,17 +53,17 @@ select C.person_id, C.drug_era_id as event_id, C.drug_era_start_date as start_da
     CAST(NULL as bigint) as visit_occurrence_id,C.drug_era_start_date as sort_date
 from 
 (
-  select de.* , row_number() over (PARTITION BY de.person_id ORDER BY de.drug_era_start_date, de.drug_era_id) as ordinal
+  select de.* 
   FROM @cdm_database_schema.DRUG_ERA de
 where de.drug_concept_id in (SELECT concept_id from  #Codesets where codeset_id = 7)
 ) C
 
-WHERE C.ordinal = 1
+
 -- End Drug Era Criteria
 
   ) E
 	JOIN @cdm_database_schema.observation_period OP on E.person_id = OP.person_id and E.start_date >=  OP.observation_period_start_date and E.start_date <= op.observation_period_end_date
-  WHERE DATEADD(day,60,OP.OBSERVATION_PERIOD_START_DATE) <= E.START_DATE AND DATEADD(day,0,E.START_DATE) <= OP.OBSERVATION_PERIOD_END_DATE
+  WHERE DATEADD(day,30,OP.OBSERVATION_PERIOD_START_DATE) <= E.START_DATE AND DATEADD(day,0,E.START_DATE) <= OP.OBSERVATION_PERIOD_END_DATE
 ) P
 
 -- End Primary Events
