@@ -96,5 +96,4 @@ execute(databaseDetails = databaseDetails,
         logSettings = logSettings)
 
 # Uncomment and run the next line to see the shiny results:
-outputFolder <- ""
 PatientLevelPrediction::viewMultiplePlp(outputFolder)

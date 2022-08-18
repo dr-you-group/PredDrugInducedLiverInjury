@@ -2,8 +2,9 @@ Package: PredDrugInducedLiverInjury
 Type: Package
 Title: A Skeleton for Prediction Development Studies that use the PatientLevelPrediction Framework
 Version: 0.0.6
-Author: Jenna Reps [aut, cre]
-Maintainer: Jenna M Reps <reps@ohdsi.org>
+Author: Seng Chan You [aut],
+        Yongjae Lee [aut]
+Maintainer: Seng Chan You <seng.chan.you@ohdsi.org>
 Description: A skeleton package to be used as a starting point when implementing patient-level prediction development studies.
 Depends:
     R(>= 3.6.0)
@@ -15,7 +16,8 @@ Imports:
     ParallelLogger,
     reshape2,
     SqlRender,
-    utils
+    utils,
+    xgboost
 Suggests:
     Andromeda,
     DT,
@@ -37,6 +39,14 @@ Suggests:
     shinydashboard,
     shinyWidgets,
     VennDiagram
+Remotes:
+    ohdsi/FeatureExtraction,
+    ohdsi/CohortMethod,
+    ohdsi/MethodEvaluation,
+    ohdsi/CohortDiagnostics,
+    ohdsi/ROhdsiWebApi,
+    ohdsi/PhenotypeLibrary,
+    ohdsi/CirceR
 License: Apache License 2.0
 VignetteBuilder: knitr
 LazyData: TRUE
