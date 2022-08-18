@@ -103,7 +103,7 @@ Instructions
     analysisIdDocument <- 1
     ```
 
-9. Execute the class-vs-class CES study via:
+9. Execute the Prediction Study via:
 	```r
 	execute(databaseDetails = databaseDetails,
             outputFolder = outputFolder, 
