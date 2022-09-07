@@ -6,12 +6,13 @@ library(PredDrugInducedLiverInjury)
 outputFolder <- ""
 
 # Details for connecting to the server:
-dbms <- 
-user <- 
-pw <- 
-server <- 
-port <- 
-pathToDriver <- 
+dbms <- "you dbms"
+user <- 'your username'
+pw <- 'your password'
+server <- 'your server'
+port <- 'your port'
+pathToDriver <- 'your db driver'
+
 
 connectionDetails <- DatabaseConnector::createConnectionDetails(dbms = dbms,
                                                                 server = server,
@@ -21,14 +22,15 @@ connectionDetails <- DatabaseConnector::createConnectionDetails(dbms = dbms,
                                                                 pathToDriver = pathToDriver)
 
 # Add the database containing the OMOP CDM data
-cdmDatabaseSchema <- 
+cdmDatabaseSchema <- "cdm database schema"
 # Add a sharebale name for the database containing the OMOP CDM data
-cdmDatabaseName <- 
+cdmDatabaseName <- "a friendly shareable name for your database"
 # Add a database with read/write access as this is where the cohorts will be generated
-cohortDatabaseSchema <- 
-# table name where the cohorts will be generated
+cohortDatabaseSchema <- "work database schema"
 
+# table name where the cohorts will be generated
 cohortTable <- "PredDrugInducedLiverInjuryCohort"
+
 # pick the minimum count that will be displayed if creating the shiny app, the validation package,
 # the diagnosis or packaging the results to share
 minCellCount <- 5
@@ -96,4 +98,4 @@ execute(databaseDetails = databaseDetails,
         logSettings = logSettings)
 
 # Uncomment and run the next line to see the shiny results:
-PatientLevelPrediction::viewMultiplePlp(outputFolder)
+# PatientLevelPrediction::viewMultiplePlp(outputFolder)

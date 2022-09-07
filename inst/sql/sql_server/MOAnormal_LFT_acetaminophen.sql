@@ -1,9 +1,6 @@
 CREATE TABLE #Codesets (
-
   codeset_id int NOT NULL,
-
   concept_id bigint NOT NULL
-  
 )
 ;
 
@@ -34,7 +31,7 @@ SELECT 6 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
 ) C UNION ALL 
 SELECT 7 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
 ( 
-  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (40235485)
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (1125315)
 
 ) I
 ) C
