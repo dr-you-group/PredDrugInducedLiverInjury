@@ -35,51 +35,6 @@
   "outcomeIds": [1779433],
   "skeletonVersion": "v0.0.6",
   "conceptSetCrossReference": [],
-  "cohortDefinitions": [
-    {
-      "id": 1779433,
-      "name": "MOAAbnormal_LFT"
-    },{
-      "id": 1779395,
-      "name": "MOAnormal_LFT_meloxicam"
-    },{
-      "id": 1779396,
-      "name": "MOAnormal_LFT_celecoxib"
-    },{
-      "id": 1779397,
-      "name": "MOAnormal_LFT_valproate"
-    },{
-      "id": 1779398,
-      "name": "MOAnormal_LFT_lamotrigine"
-    },{
-      "id": 1779399,
-      "name": "MOAnormal_LFT_azilsartan"
-    },{
-      "id": 1779400,
-      "name": "MOAnormal_LFT_candesartan"
-    },{
-      "id": 1779401,
-      "name": "MOAnormal_LFT_eprosartan"
-    },{
-      "id": 177940,
-      "name": "MOAnormal_LFT_fimasartan"
-    },{
-      "id": 177940,
-      "name": "MOAnormal_LFT_irbesartan"
-    },{
-      "id": 177940,
-      "name": "MOAnormal_LFT_losartan"
-    },{
-      "id": 177940,
-      "name": "MOAnormal_LFT_olmesartan"
-    },{
-      "id": 177940,
-      "name": "MOAnormal_LFT_telmisartan"
-    },{
-      "id": 177940,
-      "name": "MOAnormal_LFT_valsartan"
-    }
-  ],
   "modelSettings": [
     {"LassoLogisticRegressionSettings": {
       "seed": null,
