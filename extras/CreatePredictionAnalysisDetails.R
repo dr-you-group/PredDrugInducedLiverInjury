@@ -29,7 +29,7 @@ createAnalysesDetails <- function(workFolder) {
    # 1) ADD MODELS you want
   modelSettingList <- list(setAdaBoost(nEstimators = c(10,50,100), learningRate = c(0.5,0.9,1)),
                            setLassoLogisticRegression(),
-                           setGradientBoostingMachine(), 
+                           setGradientBoostingMachine() 
                         #    setCIReNN(), 
                         #    setCNNTorch(), 
                         #    setCovNN(), 
