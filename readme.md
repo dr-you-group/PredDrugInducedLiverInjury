@@ -4,7 +4,7 @@ Prediction of Drug Induced Liver Injury
 - Analytics use case(s): **Patient-Level-Prediction**
 - Study type: **Clinical Application**
 - Tags: **-**
-- Study lead: **Seng Chan You**
+- Study lead: **Seng Chan You, Yongjae Lee**
 - Study lead forums tag: **-**
 - Study start date: **Feburary 2022**
 - Study end date: **-**
